@@ -1,0 +1,42 @@
+# archives
+*.7z
+*.7zip
+*.rar
+*.tar.gz
+*.tgz
+*.zip
+
+# binary files
+*.bin
+
+# build artifacts
+**/build
+
+# data files
+*.csv
+*.json
+*.tsv
+*.xls
+*.xlsx
+
+# editor files
+*.sw?
+.vscode
+.idea/
+
+# environment variable files
+.env
+
+# keys and certs
+*.cer
+*.crt
+*.key
+*.pem
+
+# logs
+logs
+*.log
+*.txt
+
+# macOS finder
+**/*.DS_Store
