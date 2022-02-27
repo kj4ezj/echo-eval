@@ -3,7 +3,7 @@ This library simply prints a bash command with a shell prompt in front of it and
 
 ### Index
 1. [Background](README.md#background)
-1. [Usage](README.md#usage)
+1. [Installation](README.md#installation)
     1. [Local Scripts](README.md#local-scripts)
     1. [Shared Scripts](README.md#shared-scripts)
 
@@ -52,7 +52,7 @@ eval "$DOCKER_RUN"
 ```
 This is a pain to type for all the major commands a script is doing, and makes the source file thrice as long.
 
-## Usage
+## Installation
 This library performs the `echo`/`eval` against any string(s) passed to `ee`. For example, the output of...
 ```bash
 ee jq --version
