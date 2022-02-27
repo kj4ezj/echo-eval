@@ -1,6 +1,6 @@
 #!/bin/bash
 function ee()
 {
-    echo "$ $*"
+    printf "\e[2m$ $*\e[0m\n"
     eval "$@"
 }
