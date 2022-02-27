@@ -4,6 +4,8 @@ This library simply prints a bash command with a shell prompt in front of it and
 ### Index
 1. [Background](README.md#background)
 1. [Usage](README.md#usage)
+    1. [Local Scripts](README.md#local-scripts)
+    1. [Shared Scripts](README.md#shared-scripts)
 
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
