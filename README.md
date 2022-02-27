@@ -48,7 +48,10 @@ DOCKER_RUN='docker run -it ubuntu:20:04'
 echo "$ $DOCKER_RUN"
 eval "$DOCKER_RUN"
 ```
-This is a pain to type for all the major commands a script is doing, and makes the source file thrice as long. This library performs the `echo`/`eval` against any string(s) passed to `ee`. For example, the output of...
+This is a pain to type for all the major commands a script is doing, and makes the source file thrice as long.
+
+## Usage
+This library performs the `echo`/`eval` against any string(s) passed to `ee`. For example, the output of...
 ```bash
 ee jq --version
 ```
@@ -57,9 +60,6 @@ ee jq --version
 $ jq --version
 jq-1.6
 ```
-
-## Usage
-For local scripts it is as simple as sourcing `ee.sh`, but you will want to use submodules or a package manager to import this code in shared scripts.
 
 ### Local Scripts
 Make a folder for these types of things to live, if you don't have one already.
