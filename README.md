@@ -19,7 +19,6 @@ $ ls -la
 total 56
 drwxr-xr-x   1 root root 4096 Feb 27 20:01 .
 drwxr-xr-x   1 root root 4096 Feb 27 20:01 ..
--rwxr-xr-x   1 root root    0 Feb 27 20:01 .dockerenv
 lrwxrwxrwx   1 root root    7 Jan 13 16:47 bin -> usr/bin
 drwxr-xr-x   2 root root 4096 Apr 15  2020 boot
 drwxr-xr-x   5 root root  360 Feb 27 20:01 dev
