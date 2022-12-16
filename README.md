@@ -1,5 +1,5 @@
 # echo-eval
-This library simply prints a bash command with a shell prompt in front of it and then runs that command using `eval`. This pattern makes your shell scripts easier to debug because you can see which commands are bring run and what the output is in a way that is familiar and approachable.
+This library simply prints a bash command with a shell prompt in front of it and then runs that command using `eval`. This pattern makes your shell scripts easier to debug because you can see which commands are being run and what the output is in a way that is familiar and approachable.
 
 ### Index
 1. [Background](README.md#background)
