@@ -1,0 +1,9 @@
+{
+  "name": "echo-eval",
+  "version": "0.1.0",
+  "description": "Print and run BASH commands in a style that resembles someone typing at a terminal",
+  "install": "make install",
+  "scripts": [
+    "ee.sh"
+  ]
+}
