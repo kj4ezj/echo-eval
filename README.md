@@ -49,7 +49,7 @@ DOCKER_RUN='docker run -it ubuntu:20:04'
 echo "$ $DOCKER_RUN"
 eval "$DOCKER_RUN"
 ```
-This is a pain to type for all the major commands a script is doing, and makes the source file thrice as long.
+This is a pain to type for all the major commands a script is doing, and makes the source file thrice as many lines long.
 
 ## Installation
 This library performs the `echo`/`eval` against any string(s) passed to `ee`. For example, the output of...
