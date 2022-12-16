@@ -76,7 +76,7 @@ Then, source `ee.sh` in your `~/bashrc`, `~/bash_aliases`, `~/bash_profile`, scr
 ```bash
 source ~/.bash/echo-eval/ee.sh
 ```
-Finally, restart your shell to use this function in your scripts.
+Finally, reload or restart your shell to use this function in your scripts.
 
 ### Shared Scripts
 For scripts shared privately or publicly, the "correct" thing to do would be for me to publish this function using a package manager like [`bpkg`](https://github.com/bpkg/bpkg), then for you to import it using a specific semantic version. For now, unfortunatly, I have not gotten around to this yet so I recommend importing this code as a submodule in your BASH script repo.
