@@ -89,6 +89,12 @@ echo-eval$ ee echo test
 $ echo test
 test
 ```
+You can also invoke the file directly.
+```bash
+echo-eval$ ./ee.sh echo test
+$ echo test
+test
+```
 
 Some more complicated commands may need to be encased in quotes, such as this command where pipes are in use.
 ```bash
