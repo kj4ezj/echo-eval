@@ -2,10 +2,10 @@
 This library simply prints a bash command with a shell prompt in front of it and then runs that command using `eval`. This pattern makes your shell scripts easier to debug because you can see which commands are being run and what the output is in a way that is familiar and approachable to you and your customers.
 
 ### Index
-1. [Background](README.md#background)
-1. [Installation](README.md#installation)
-    1. [Local Scripts](README.md#local-scripts)
-    1. [Shared Scripts](README.md#shared-scripts)
+1. [Background](#background)
+1. [Installation](#installation)
+    1. [Local Scripts](#local-scripts)
+    1. [Shared Scripts](#shared-scripts)
 
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
