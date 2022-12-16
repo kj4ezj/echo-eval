@@ -72,7 +72,7 @@ Follow the instructions at the top-right of this repo to use your preferred meth
 ```bash
 git clone --recursive git@github.com:kj4ezj/echo-eval.git
 ```
-Then, source `ee.sh` in your `~/bashrc`, `~/bash_aliases`, `~/bash_profile`, or similar.
+Then, source `ee.sh` in your `~/bashrc`, `~/bash_aliases`, `~/bash_profile`, script, or similar.
 ```bash
 source ~/.bash/echo-eval/ee.sh
 ```
