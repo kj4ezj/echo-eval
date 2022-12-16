@@ -40,3 +40,6 @@ logs
 
 # macOS finder
 **/*.DS_Store
+
+# bpkg
+**/deps
