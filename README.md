@@ -44,13 +44,19 @@ drwxr-xr-x  11 root root 4096 Jan 13 16:50 var
 ```
 I find this is much more approachable to newer developers than something like `set -x`, which displays a bunch of nonsense in addition to the commands being run on most systems.
 
-The obvious next step was to de-duplicate the command.
+The logical next step was to de-duplicate the command so what is printed could never be different than what is being run.
 ```bash
 DOCKER_RUN='docker run -it ubuntu:20:04'
 echo "$ $DOCKER_RUN"
 eval "$DOCKER_RUN"
 ```
-This is a pain to type for all the major commands a script is doing, and makes the source file thrice as many lines long.
+This is a pain to type for all the major commands a script is doing and makes the source file thrice as many lines long.
+
+The solution to this toil was to de-duplicate the pattern itself using a BASH function so that commands only take one line each again.
+```bash
+ee 'docker run -it ubuntu:20:04'
+```
+Finally, the function has been packaged as a module that can be installed on a system or imported by BASH scripts using a package manager.
 
 ## Installation
 This library performs the `echo`/`eval` against any string(s) passed to `ee`. For example, the output of...
