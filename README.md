@@ -5,7 +5,7 @@ This library simply prints a bash command with a shell prompt in front of it and
 1. [Background](#background)
 1. [Installation](#installation)
     1. [bpkg](#bpkg) - package manager
-    1. [Local Scripts](#local-scripts)
+    1. [Manual](#manual-installation)
 1. [Usage](#usage)
 
 ## Background
@@ -92,21 +92,17 @@ It seems like bpkg doesn't have a global uninstall at this time so you can unins
 rm -f "$(which ee)" 2>/dev/null || sudo rm -f "$(which ee)"
 ```
 
-### Local Scripts
-Make a folder for these types of things to live, if you don't have one already.
+### Manual Installation
+Clone this repo locally using your preferred method. Navigate to the root of the repo in your termial and install.
 ```bash
-mkdir -p ~/.bash
-cd ~/.bash
+sudo make install
 ```
-Follow the instructions at the top-right of this repo to use your preferred method to clone this repo into that folder.
+This will install `ee` for all users. If you do not wish to use `sudo` or otherwise install using `root` permissions, please [install using `bpkg`](#bpkg).
+
+Do the reverse to uninstall. From the root of this repo in your terminal:
 ```bash
-git clone --recursive git@github.com:kj4ezj/echo-eval.git
+sudo make uninstall
 ```
-Then, source `ee.sh` in your `~/bashrc`, `~/bash_aliases`, `~/bash_profile`, script, or similar.
-```bash
-source ~/.bash/echo-eval/ee.sh
-```
-Finally, reload or restart your shell to use this function in your scripts.
 
 ## Usage
 This library performs the `echo`/`eval` pattern against any string(s) passed to `ee`. For example, the output of...
