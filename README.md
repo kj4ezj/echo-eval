@@ -87,7 +87,7 @@ This is the recommended installation method. Install [bpkg](https://github.com/b
     sudo bpkg install -g kj4ezj/echo-eval
     ```
 
-It seems like bpkg doesn't have a global uninstall at this time so you can uninstall by deleting the relevant executable.
+It seems like `bpkg` doesn't have a global uninstall at this time so you can uninstall by deleting the relevant executable.
 ```bash
 rm -f "$(which ee)" 2>/dev/null || sudo rm -f "$(which ee)"
 ```
