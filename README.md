@@ -59,6 +59,7 @@ ee 'docker run -it ubuntu:20:04'
 Finally, the function has been packaged as a module that can be installed on a system or imported by BASH scripts using a package manager.
 
 ## Installation
+You can install this script using a package manager (recommended), install manually and source it from somewhere, or invoke it directly without installing.
 
 ### Local Scripts
 Make a folder for these types of things to live, if you don't have one already.
