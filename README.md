@@ -71,7 +71,7 @@ This is the recommended installation method. Install [bpkg](https://github.com/b
     ```
     deps
     ├── bin
-    │   └── ee -> ./deps/echo-eval/ee.sh
+    │   └── ee -> /deps/echo-eval/ee.sh
     └── echo-eval
         ├── bpkg.json
         └── ee.sh
