@@ -59,15 +59,6 @@ ee 'docker run -it ubuntu:20:04'
 Finally, the function has been packaged as a module that can be installed on a system or imported by BASH scripts using a package manager.
 
 ## Installation
-This library performs the `echo`/`eval` against any string(s) passed to `ee`. For example, the output of...
-```bash
-ee jq --version
-```
-...might look like:
-```
-$ jq --version
-jq-1.6
-```
 
 ### Local Scripts
 Make a folder for these types of things to live, if you don't have one already.
@@ -89,20 +80,30 @@ Finally, reload or restart your shell to use this function in your scripts.
 For scripts shared privately or publicly, the "correct" thing to do would be for me to publish this function using a package manager like [`bpkg`](https://github.com/bpkg/bpkg), then for you to import it using a specific semantic version. For now, unfortunatly, I have not gotten around to this yet so I recommend importing this code as a submodule in your BASH script repo.
 
 ## Usage
-Once this utility is available in your BASH context (shell, script, etc.) you can use it by simply passing a command to `ee`.
+This library performs the `echo`/`eval` pattern against any string(s) passed to `ee`. For example, the output of...
+```bash
+ee jq --version
+```
+...might look like:
+```
+$ jq --version
+jq-1.6
+```
+
+You can invoke `ee` as a function...
 ```bash
 echo-eval$ ee echo test
 $ echo test
 test
 ```
-You can also invoke the file directly.
+...or as a file.
 ```bash
 echo-eval$ ./ee.sh echo test
 $ echo test
 test
 ```
 
-Some more complicated commands may need to be encased in quotes, such as this command where pipes are in use.
+Some more complicated commands may need to be encased in quotes, such as this command where we are using pipes but wish to echo the entire command.
 ```bash
 echo-eval$ export EXAMPLE='yeet'
 echo-eval$ ee printf "$EXAMPLE" | wc -c
@@ -111,4 +112,4 @@ echo-eval$ ee 'printf "$EXAMPLE" | wc -c'
 $ printf "$EXAMPLE" | wc -c
 4
 ```
-Here, you can see one intending to print the length of the value of the `EXAMPLE` environment variable only got the expected output when the whole command was surrounded in single quotes. Be vigilant of quoting, especially if variables being consumed by commands contain secrets and you want `ee` to print the _name_ of the variable in the `echo` step, not the _value_ contained by the variable. It is recommended you always try out commands locally in your shell.
+Here, you can see one intending to print the length of the value of the `EXAMPLE` environment variable only got the expected output when the whole command was surrounded in single quotes. Be vigilant of quoting, especially if variables being consumed by commands contain secrets and you want `ee` to print the _name_ of the variable in the `echo` step, not the _value_ contained by the variable. It is recommended you always try out commands locally in your shell before publishing them.
