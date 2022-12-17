@@ -4,8 +4,8 @@ This library simply prints a bash command with a shell prompt in front of it and
 ### Index
 1. [Background](#background)
 1. [Installation](#installation)
+    1. [bpkg](#bpkg) - package manager
     1. [Local Scripts](#local-scripts)
-    1. [Shared Scripts](#shared-scripts)
 1. [Usage](#usage)
 
 ## Background
@@ -61,6 +61,37 @@ Finally, the function has been packaged as a module that can be installed on a s
 ## Installation
 You can install this script using a package manager (recommended), install manually and source it from somewhere, or invoke it directly without installing.
 
+### bpkg
+This is the recommended installation method. Install [bpkg](https://github.com/bpkg/bpkg) if you have not already. Then, you have three installation options.
+1. Install as a dependency for your BASH script. From the root of your project repo:
+    ```bash
+    bpkg install kj4ezj/echo-eval
+    ```
+    A `deps/` folder will be created in the current directory with the following structure.
+    ```
+    deps
+    ├── bin
+    │   └── ee -> ./deps/echo-eval/ee.sh
+    └── echo-eval
+        ├── bpkg.json
+        └── ee.sh
+    ```
+    You can source one or more dependencies in your script from `./deps/bin/`.
+    - If you package your project, be sure to declare this as a dependency in your `bpkg.json` file.
+1. Install globally for the current user.
+    ```bash
+    bpkg install kj4ezj/echo-eval
+    ```
+1. Install globally for all users on the current system.
+    ```bash
+    sudo bpkg install -g kj4ezj/echo-eval
+    ```
+
+It seems like bpkg doesn't have a global uninstall at this time so you can uninstall by deleting the relevant executable.
+```bash
+rm -f "$(which ee)" 2>/dev/null || sudo rm -f "$(which ee)"
+```
+
 ### Local Scripts
 Make a folder for these types of things to live, if you don't have one already.
 ```bash
@@ -76,9 +107,6 @@ Then, source `ee.sh` in your `~/bashrc`, `~/bash_aliases`, `~/bash_profile`, scr
 source ~/.bash/echo-eval/ee.sh
 ```
 Finally, reload or restart your shell to use this function in your scripts.
-
-### Shared Scripts
-For scripts shared privately or publicly, the "correct" thing to do would be for me to publish this function using a package manager like [`bpkg`](https://github.com/bpkg/bpkg), then for you to import it using a specific semantic version. For now, unfortunatly, I have not gotten around to this yet so I recommend importing this code as a submodule in your BASH script repo.
 
 ## Usage
 This library performs the `echo`/`eval` pattern against any string(s) passed to `ee`. For example, the output of...
