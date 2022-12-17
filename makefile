@@ -4,6 +4,7 @@ PREFIX ?= /usr/local
 install:
 	@echo 'Installing echo-eval.'
 	cp './ee.sh' '$(PREFIX)/bin/$(BIN)'
+	chmod +x '$(PREFIX)/bin/$(BIN)'
 	@echo 'Done installing echo-eval.'
 
 uninstall:
