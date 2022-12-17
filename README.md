@@ -67,7 +67,7 @@ This is the recommended installation method. Install [bpkg](https://github.com/b
     ```bash
     bpkg install kj4ezj/echo-eval
     ```
-    A `deps/` folder will be created in the current directory with the following structure.
+    This will create a `deps/` folder in the current directory with the following structure.
     ```
     deps
     ├── bin
