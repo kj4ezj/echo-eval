@@ -77,6 +77,7 @@ This is the recommended installation method. Install [bpkg](https://github.com/b
         └── ee.sh
     ```
     You can source one or more dependencies in your script from `./deps/bin/`.
+    - Be sure to add `deps` to your `.gitignore`.
     - If you package your project, be sure to declare this as a dependency in your `bpkg.json` file.
 1. Install globally for the current user.
     ```bash
