@@ -80,7 +80,7 @@ This is the recommended installation method. Install [bpkg](https://github.com/b
     - If you package your project, be sure to declare this as a dependency in your `bpkg.json` file.
 1. Install globally for the current user.
     ```bash
-    bpkg install kj4ezj/echo-eval
+    bpkg install -g kj4ezj/echo-eval
     ```
 1. Install globally for all users on the current system.
     ```bash
