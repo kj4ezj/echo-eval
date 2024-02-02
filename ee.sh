@@ -12,3 +12,6 @@ else
     ee "${@}"
     exit "$?"
 fi
+
+# https://github.com/kj4ezj/ee
+# Copyright © 2022 Zach Butler
