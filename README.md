@@ -88,11 +88,12 @@ This is the recommended installation method. Install [bpkg](https://github.com/b
     sudo bpkg install -g kj4ezj/echo-eval
     ```
 
-It seems like `bpkg` doesn't have a global uninstall at this time so you can uninstall by deleting the relevant executable.
-```bash
-EE_PATH="$(which ee || ee 'echo "${BASH_SOURCE[0]}"' | tail -1)"
-rm -f "$EE_PATH" 2>/dev/null || sudo rm -f "$EE_PATH"
-```
+> [!NOTE]
+> At the time of writing, [`bpkg` does not have a global uninstall](https://github.com/bpkg/bpkg/issues/31). You can uninstall by deleting the relevant executable.
+> ```bash
+> EE_PATH="$(which ee || ee 'echo "${BASH_SOURCE[0]}"' | tail -1)"
+> rm -f "$EE_PATH" 2>/dev/null || sudo rm -f "$EE_PATH"
+> ```
 
 ### make
 Clone this repo locally using your preferred method. Navigate to the root of the repo in your termial and install.
