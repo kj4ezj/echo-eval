@@ -5,7 +5,7 @@ This library simply prints a bash command with a shell prompt in front of it and
 1. [Background](#background)
 1. [Installation](#installation)
     1. [bpkg](#bpkg) - package manager
-    1. [Manual](#manual-installation)
+    1. [make](#make)
 1. [Usage](#usage)
 
 ## Background
@@ -94,7 +94,7 @@ EE_PATH="$(which ee || ee 'echo "${BASH_SOURCE[0]}"' | tail -1)"
 rm -f "$EE_PATH" 2>/dev/null || sudo rm -f "$EE_PATH"
 ```
 
-### Manual Installation
+### make
 Clone this repo locally using your preferred method. Navigate to the root of the repo in your termial and install.
 ```bash
 sudo make install
