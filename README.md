@@ -11,6 +11,7 @@ This library simply prints a bash command with a shell prompt in front of it and
 1. [Development](#development)
     1. [Dependencies](#dependencies)
     1. [Lint](#lint)
+    1. [Test](#test)
 
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
@@ -159,6 +160,7 @@ Contribute to this project.
 ## Dependencies
 The script itself has no dependencies by design, but you will need these tools to work on this script and test your changes:
 - [bashate](https://github.com/openstack/bashate)
+- [bats](https://github.com/bats-core/bats-core)
 - [bpkg](https://github.com/bpkg/bpkg)
 - git
 - make
@@ -170,3 +172,6 @@ This project uses [bashate](https://github.com/openstack/bashate) _and_ [shellch
 bashate -i E006 ee.sh
 shellcheck -x -f gcc ee.sh
 ```
+
+## Test
+This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS).
