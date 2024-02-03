@@ -1,6 +1,5 @@
 #!/bin/bash
-function ee()
-{
+function ee {
     echo "$ $*"
     eval "$@"
 }
