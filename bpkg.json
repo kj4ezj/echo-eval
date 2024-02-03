@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Print and run BASH commands in a style that resembles someone typing at a terminal",
   "homepage": "https://github.com/kj4ezj/echo-eval",
+  "author": "Zach Butler <kj4ezj+echo-eval@pm.me",
   "install": "make install",
   "scripts": [
     "ee.sh"
