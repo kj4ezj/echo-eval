@@ -6,6 +6,7 @@
   "author": "Zach Butler <kj4ezj+echo-eval@pm.me",
   "license": "MIT",
   "install": "make install",
+  "uninstall" : "make uninstall",
   "scripts": [
     "ee.sh"
   ]
