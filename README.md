@@ -8,6 +8,8 @@ This library simply prints a bash command with a shell prompt in front of it and
     1. [make](#make)
     1. [Manual Installation](#manual-installation)
 1. [Usage](#usage)
+1. [Development](#development)
+    1. [Dependencies](#dependencies)
 
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
@@ -149,3 +151,14 @@ $ printf "$EXAMPLE" | wc -c
 4
 ```
 Here, you can see one intending to print the length of the value of the `EXAMPLE` environment variable only got the expected output when the whole command was surrounded in single quotes. Be vigilant of quoting, especially if variables being consumed by commands contain secrets and you want `ee` to print the _name_ of the variable in the `echo` step, not the _value_ contained by the variable. It is recommended you always try out commands locally in your shell before publishing them.
+
+# Development
+Contribute to this project.
+
+## Dependencies
+The script itself has no dependencies by design, but you will need these tools to work on this script and test your changes:
+- [bashate](https://github.com/openstack/bashate)
+- [bpkg](https://github.com/bpkg/bpkg)
+- git
+- make
+- [shellcheck](https://github.com/koalaman/shellcheck)
