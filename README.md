@@ -10,6 +10,7 @@ This library simply prints a bash command with a shell prompt in front of it and
 1. [Usage](#usage)
 1. [Development](#development)
     1. [Dependencies](#dependencies)
+    1. [Lint](#lint)
 
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
@@ -162,3 +163,10 @@ The script itself has no dependencies by design, but you will need these tools t
 - git
 - make
 - [shellcheck](https://github.com/koalaman/shellcheck)
+
+## Lint
+This project uses [bashate](https://github.com/openstack/bashate) _and_ [shellcheck](https://github.com/koalaman/shellcheck) for linting.
+```bash
+bashate -i E006 ee.sh
+shellcheck -x -f gcc ee.sh
+```
