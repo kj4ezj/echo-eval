@@ -90,7 +90,8 @@ This is the recommended installation method. Install [bpkg](https://github.com/b
 
 It seems like `bpkg` doesn't have a global uninstall at this time so you can uninstall by deleting the relevant executable.
 ```bash
-rm -f "$(ee 'echo "${BASH_SOURCE[0]}"' | tail -1)" 2>/dev/null || sudo rm -f "$(ee 'echo "${BASH_SOURCE[0]}"' | tail -1)"
+EE_PATH="$(which ee || ee 'echo "${BASH_SOURCE[0]}"' | tail -1)"
+rm -f "$EE_PATH" 2>/dev/null || sudo rm -f "$EE_PATH"
 ```
 
 ### Manual Installation
