@@ -6,6 +6,7 @@ This library simply prints a bash command with a shell prompt in front of it and
 1. [Installation](#installation)
     1. [bpkg](#bpkg) - package manager
     1. [make](#make)
+    1. [Manual Installation](#manual-installation)
 1. [Usage](#usage)
 
 ## Background
@@ -106,6 +107,13 @@ Do the reverse to uninstall. From the root of this repo in your terminal:
 ```bash
 sudo make uninstall
 ```
+
+### Manual Installation
+You can also source this script in your `~/.bashrc` or similar.
+```bash
+source ~/github/kj4ezj/echo-eval/ee.sh
+```
+Just remove that line to "uninstall."
 
 ## Usage
 This library performs the `echo`/`eval` pattern against any string(s) passed to `ee`. For example, the output of...
