@@ -4,6 +4,7 @@
   "description": "Print and run BASH commands in a style that resembles someone typing at a terminal",
   "homepage": "https://github.com/kj4ezj/echo-eval",
   "author": "Zach Butler <kj4ezj+echo-eval@pm.me",
+  "license": "MIT",
   "install": "make install",
   "scripts": [
     "ee.sh"
