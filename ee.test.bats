@@ -1,5 +1,9 @@
 #!/usr/bin/env bats
 
+@test 'test environment > GNU grep is installed' {
+    grep --version | grep 'GNU' >/dev/null
+}
+
 @test 'ee.sh > exists' {
     [[ -f 'ee.sh' ]] && true || false
 }
