@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 export BASE_CASE="dc -e '1 2 + p'"
+export BASE_CASE_CMD='dc'
 
 # meta
 @test 'test environment > GNU grep is installed' {
@@ -14,6 +15,12 @@ export BASE_CASE="dc -e '1 2 + p'"
 
 @test 'ee.sh > is executable' {
     [[ -x 'ee.sh' ]] && true || false
+}
+
+# base case
+@test 'ee.sh > base case > shell command is printed' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep "$BASE_CASE_CMD" >/dev/null
 }
 
 # shell prompt test cases
