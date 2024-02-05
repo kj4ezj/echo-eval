@@ -23,6 +23,12 @@ export BASE_CASE_CMD='dc'
     echo "$TEST_STDOUT" | grep "$BASE_CASE_CMD" >/dev/null
 }
 
+@test 'ee.sh > base case > shell command is printed exactly once' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    COUNT="$(echo "$TEST_STDOUT" | grep -oP "$BASE_CASE_CMD" | wc -l)"
+    [[ "$COUNT" == '1' ]] && true || false
+}
+
 @test 'ee.sh > base case > shell command is printed on first line' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | head -n 1 | grep "$BASE_CASE_CMD" >/dev/null
