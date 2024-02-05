@@ -12,3 +12,8 @@
     TEST_STDOUT="$(./ee.sh 'echo test')"
     echo "$TEST_STDOUT" | grep -P '^[$#][^$#]' >/dev/null
 }
+
+@test 'ee.sh > output > shell prompt is a dollar sign' {
+    TEST_STDOUT="$(./ee.sh 'echo test')"
+    echo "$TEST_STDOUT" | grep -P '^[$]' >/dev/null
+}
