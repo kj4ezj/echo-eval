@@ -34,6 +34,11 @@ export BASE_CASE_CMD='dc'
     echo "$TEST_STDOUT" | head -n 1 | grep "$BASE_CASE_CMD" >/dev/null
 }
 
+@test 'ee.sh > base case > shell command is printed right after shell prompt' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep -P "[\$#]+[ \t]+$BASE_CASE_CMD" >/dev/null
+}
+
 # shell prompt test cases
 @test 'ee.sh > shell prompt > exists' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
