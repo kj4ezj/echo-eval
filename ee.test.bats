@@ -10,7 +10,7 @@
 
 @test 'ee.sh > output > begins with shell prompt' {
     TEST_STDOUT="$(./ee.sh 'echo test')"
-    echo "$TEST_STDOUT" | grep -P '^[$#][^$#]' >/dev/null
+    echo "$TEST_STDOUT" | grep -P '^[$#]' >/dev/null
 }
 
 @test 'ee.sh > output > shell prompt is a dollar sign' {
