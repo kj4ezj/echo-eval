@@ -7,3 +7,8 @@
 @test 'ee.sh > is executable' {
     [[ -x 'ee.sh' ]] && true || false
 }
+
+@test 'ee.sh > output > begins with shell prompt' {
+    TEST_STDOUT="$(./ee.sh 'echo test')"
+    echo "$TEST_STDOUT" | grep -P '^[$#][^$#]' >/dev/null
+}
