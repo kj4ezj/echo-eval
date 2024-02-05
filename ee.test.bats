@@ -17,3 +17,8 @@
     TEST_STDOUT="$(./ee.sh 'echo test')"
     echo "$TEST_STDOUT" | grep -P '^[$]' >/dev/null
 }
+
+@test 'ee.sh > output > shell prompt is followed by exactly one space' {
+    TEST_STDOUT="$(./ee.sh 'echo test')"
+    echo "$TEST_STDOUT" | grep -P '^. [^ ]' >/dev/null
+}
