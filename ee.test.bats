@@ -39,6 +39,11 @@ export BASE_CASE_CMD='dc'
     echo "$TEST_STDOUT" | grep -P "[\$#]+[ \t]+$BASE_CASE_CMD" >/dev/null
 }
 
+@test 'ee.sh > base case > shell command is printed with arguments' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep "$BASE_CASE" >/dev/null
+}
+
 # shell prompt test cases
 @test 'ee.sh > shell prompt > exists' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
