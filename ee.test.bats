@@ -4,6 +4,7 @@ export BASE_CASE="dc -e '1 2 + p'"
 export BASE_CASE_CMD='dc'
 export BASE_CASE_ARG1='-e'
 export BASE_CASE_ARG2="'1 2 + p'"
+export BASE_CASE_RESULT='3'
 
 # meta
 @test 'test environment > GNU grep is installed' {
@@ -81,6 +82,12 @@ export BASE_CASE_ARG2="'1 2 + p'"
 @test 'ee.sh > base case > parameters > arg2 is right after arg1' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -- "$BASE_CASE_ARG1 $BASE_CASE_ARG2" >/dev/null
+}
+
+# base case > result
+@test 'ee.sh > base case > result > is printed' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep "$BASE_CASE_RESULT" >/dev/null
 }
 
 # shell prompt test cases
