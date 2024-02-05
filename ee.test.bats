@@ -5,5 +5,5 @@
 }
 
 @test 'ee.sh > is executable' {
-    ./ee.sh
+    [[ -x 'ee.sh' ]] && true || false
 }
