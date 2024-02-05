@@ -2,10 +2,12 @@
 
 export BASE_CASE='echo "test"'
 
+# meta
 @test 'test environment > GNU grep is installed' {
     grep --version | grep 'GNU' >/dev/null
 }
 
+# generic tests
 @test 'ee.sh > exists' {
     [[ -f 'ee.sh' ]] && true || false
 }
@@ -14,6 +16,7 @@ export BASE_CASE='echo "test"'
     [[ -x 'ee.sh' ]] && true || false
 }
 
+# shell prompt test cases
 @test 'ee.sh > shell prompt > exists' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P '[$#]' >/dev/null
