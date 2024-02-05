@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-export BASE_CASE='echo "test"'
+export BASE_CASE="dc -e '1 2 + p'"
 
 # meta
 @test 'test environment > GNU grep is installed' {
