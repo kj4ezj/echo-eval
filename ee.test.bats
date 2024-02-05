@@ -29,6 +29,11 @@ export BASE_CASE='echo "test"'
     echo "$TEST_STDOUT" | head -n 1 | grep -P '[$#]' >/dev/null
 }
 
+@test 'ee.sh > shell prompt > is one character' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep -P '[$#]' | grep -P '[$#][^$#]' >/dev/null
+}
+
 @test 'ee.sh > shell prompt > uses dollar sign' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P '[$#]' | grep -P '[$]+[^$#]' >/dev/null
