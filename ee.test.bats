@@ -39,6 +39,12 @@ export BASE_CASE='echo "test"'
     echo "$TEST_STDOUT" | grep -P '^[^$#]*[$#][^$#]*$' >/dev/null
 }
 
+@test 'ee.sh > shell prompt > is printed exactly once' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    COUNT="$(echo "$TEST_STDOUT" | grep -oP '[$#]+' | wc -l)"
+    [[ "$COUNT" == '1' ]] && true || false
+}
+
 @test 'ee.sh > shell prompt > uses dollar sign' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P '^[^$#]*[$]+[^$#]*$' >/dev/null
