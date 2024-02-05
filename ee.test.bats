@@ -21,12 +21,12 @@ export BASE_CASE='echo "test"'
 
 @test 'ee.sh > shell prompt > has no prefix' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
-    echo "$TEST_STDOUT" | grep -P '[$#]' | grep -P '^[$#]' >/dev/null
+    echo "$TEST_STDOUT" | grep -P '^[$#]' >/dev/null
 }
 
 @test 'ee.sh > shell prompt > is followed by exactly one space' {
-    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
-    echo "$TEST_STDOUT" | grep -P '[$#]' | grep -P '[$#]+ [^ \t]' >/dev/null
+    TEST_STDOUT="$(./ee.sh)"
+    echo "$TEST_STDOUT" | grep -P '[$#]+ $' >/dev/null
 }
 
 @test 'ee.sh > shell prompt > is on first line' {
@@ -36,10 +36,10 @@ export BASE_CASE='echo "test"'
 
 @test 'ee.sh > shell prompt > is one character' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
-    echo "$TEST_STDOUT" | grep -P '[$#]' | grep -P '[$#][^$#]' >/dev/null
+    echo "$TEST_STDOUT" | grep -P '^[^$#]*[$#][^$#]*$' >/dev/null
 }
 
 @test 'ee.sh > shell prompt > uses dollar sign' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
-    echo "$TEST_STDOUT" | grep -P '[$#]' | grep -P '[$]+[^$#]' >/dev/null
+    echo "$TEST_STDOUT" | grep -P '^[^$#]*[$]+[^$#]*$' >/dev/null
 }
