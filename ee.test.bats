@@ -14,6 +14,11 @@ export BASE_CASE='echo "test"'
     [[ -x 'ee.sh' ]] && true || false
 }
 
+@test 'ee.sh > shell prompt > exists' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep -P '[$#]' >/dev/null
+}
+
 @test 'ee.sh > shell prompt > has no prefix' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P '[$#]' | grep -P '^[$#]' >/dev/null
