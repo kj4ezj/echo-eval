@@ -2,6 +2,8 @@
 
 export BASE_CASE="dc -e '1 2 + p'"
 export BASE_CASE_CMD='dc'
+export BASE_CASE_ARG1='-e'
+export BASE_CASE_ARG2='1 2 + p'
 
 # meta
 @test 'test environment > GNU grep is installed' {
@@ -18,28 +20,28 @@ export BASE_CASE_CMD='dc'
 }
 
 # base case
-@test 'ee.sh > base case > shell command is printed' {
+@test 'ee.sh > base case > command > is printed' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep "$BASE_CASE_CMD" >/dev/null
 }
 
-@test 'ee.sh > base case > shell command is printed exactly once' {
+@test 'ee.sh > base case > command > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP "$BASE_CASE_CMD" | wc -l)"
     [[ "$COUNT" == '1' ]] && true || false
 }
 
-@test 'ee.sh > base case > shell command is printed on first line' {
+@test 'ee.sh > base case > command > is printed on first line' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | head -n 1 | grep "$BASE_CASE_CMD" >/dev/null
 }
 
-@test 'ee.sh > base case > shell command is printed right after shell prompt' {
+@test 'ee.sh > base case > command > is right after shell prompt' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P "[\$#]+[ \t]+$BASE_CASE_CMD" >/dev/null
 }
 
-@test 'ee.sh > base case > shell command is printed with arguments' {
+@test 'ee.sh > base case > command > is with arguments' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep "$BASE_CASE" >/dev/null
 }
