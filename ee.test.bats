@@ -3,7 +3,7 @@
 export BASE_CASE="dc -e '1 2 + p'"
 export BASE_CASE_CMD='dc'
 export BASE_CASE_ARG1='-e'
-export BASE_CASE_ARG2='1 2 + p'
+export BASE_CASE_ARG2="'1 2 + p'"
 
 # meta
 @test 'test environment > GNU grep is installed' {
@@ -19,7 +19,7 @@ export BASE_CASE_ARG2='1 2 + p'
     [[ -x 'ee.sh' ]] && true || false
 }
 
-# base case
+# base case > command
 @test 'ee.sh > base case > command > is printed' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep "$BASE_CASE_CMD" >/dev/null
@@ -44,6 +44,43 @@ export BASE_CASE_ARG2='1 2 + p'
 @test 'ee.sh > base case > command > is with arguments' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep "$BASE_CASE" >/dev/null
+}
+
+# base case > parameters
+@test 'ee.sh > base case > parameters > arg1 is printed' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep -- "$BASE_CASE_ARG1" >/dev/null
+}
+
+@test 'ee.sh > base case > parameters > arg1 is printed exactly once' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    COUNT="$(echo "$TEST_STDOUT" | grep -oP -- "$BASE_CASE_ARG1" | wc -l)"
+    [[ "$COUNT" == '1' ]] && true || false
+}
+
+@test 'ee.sh > base case > parameters > arg1 is printed on first line' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | head -n 1 | grep -- "$BASE_CASE_ARG1" >/dev/null
+}
+
+@test 'ee.sh > base case > parameters > arg1 is right after command' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep -- "$BASE_CASE_CMD $BASE_CASE_ARG1" >/dev/null
+}
+
+@test 'ee.sh > base case > parameters > arg2 is printed' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep -- "$BASE_CASE_ARG2" >/dev/null
+}
+
+@test 'ee.sh > base case > parameters > arg2 is printed on first line' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | head -n 1 | grep -- "$BASE_CASE_ARG2" >/dev/null
+}
+
+@test 'ee.sh > base case > parameters > arg2 is right after arg1' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep -- "$BASE_CASE_ARG1 $BASE_CASE_ARG2" >/dev/null
 }
 
 # shell prompt test cases
