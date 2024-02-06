@@ -31,7 +31,6 @@ ee bpkg --version
 ee curl --version
 ee git --version
 ee make --version
-ee bashate --version
 ee shellcheck --version
 
 echo "Done. - ${0##*/}"
