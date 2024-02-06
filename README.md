@@ -144,7 +144,7 @@ $ dc -e '1 2 + p'
 ```
 In this example, we want the input to `ee` to include the pipe (`|`).
 ```bash
-echo-eval$ EXAMPLE='yeet'
+echo-eval$ export EXAMPLE='yeet'
 echo-eval$ ee printf "$EXAMPLE" | wc -c
 18
 ```
