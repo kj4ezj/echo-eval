@@ -12,6 +12,7 @@ This library simply prints a bash command with a shell prompt in front of it and
     1. [Dependencies](#dependencies)
     1. [Lint](#lint)
     1. [Test](#test)
+1. [CI](#ci)
 
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
@@ -189,3 +190,15 @@ There is also a `bpkg` alias.
 bpkg run test
 ```
 This is equivalent to the above.
+
+## CI
+This repo contains the following GitHub Actions workflow(s) for CI:
+- echo-eval CI - initialize, lint, and test the `echo-eval` project.
+    - [Pipeline](https://github.com/kj4ezj/echo-eval/actions/workflows/ci.yml)
+    - [Documentation](./.github/workflows/README.md)
+
+See the pipeline documentation for more information.
+
+***
+**_Legal notice_**  
+This repo contains assets created in collaboration with a large language model, machine learning algorithm, or weak artificial intelligence (AI). This notice is required in some countries.

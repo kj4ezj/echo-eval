@@ -3,6 +3,19 @@ name: echo-eval CI
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
+  documentation:
+    name: Attach Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          submodules: 'false'
+
+      - name: Attach Documentation
+        run: cat .github/workflows/README.md >> $GITHUB_STEP_SUMMARY
+
   build:
     name: Lint and Test echo-eval
     runs-on: ubuntu-latest
