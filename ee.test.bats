@@ -292,6 +292,11 @@ export FAILURE_CASE_EXIT_STATUS='2'
     ./ee.sh "$FAILURE_CASE" >/dev/null 2>&1 && false || [[ "$?" == 2 ]]
 }
 
+@test 'ee.sh > failure case > result > writes to STDOUT' {
+    TEST_STDOUT="$(./ee.sh "$FAILURE_CASE" 2>/dev/null || :)"
+    [[ "$(printf "$TEST_STDOUT" | wc -c)" != '0' ]]
+}
+
 # failure case > shell prompt
 @test 'ee.sh > failure case > shell prompt > exists' {
     TEST_STDOUT="$(./ee.sh "$FAILURE_CASE" 2>/dev/null || :)"
