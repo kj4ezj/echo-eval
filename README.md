@@ -185,18 +185,15 @@ The script itself has no dependencies by design, but you will need these tools t
 - [shellcheck](https://github.com/koalaman/shellcheck)
 
 ### Lint
-This project uses [bashate](https://github.com/openstack/bashate) _and_ [shellcheck](https://github.com/koalaman/shellcheck) for linting.
+This project uses [bashate](https://github.com/openstack/bashate) _and_ [shellcheck](https://github.com/koalaman/shellcheck) for linting. You can run the lint script directly...
 ```bash
-bashate -i E006 ee.sh
-shellcheck -e SC2294 -x -f gcc ee.sh
-bashate -i E006,E040 ee.test.bats
-shellcheck -x -f gcc ee.test.bats
+./lint.sh
 ```
-There is a `bpkg` command if you prefer.
+...or run the linters with `bpkg`.
 ```bash
 bpkg run lint
 ```
-This alias is equivalent to the commands above.
+They both do the same thing.
 
 ### Test
 This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS). Various issues currently prevent `bpkg` from installing BATS as a dependency in this repo, so you need to install it on your system for now. The test file can be invoked directly.
