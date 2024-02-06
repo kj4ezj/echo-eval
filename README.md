@@ -169,9 +169,15 @@ The script itself has no dependencies by design, but you will need these tools t
 ## Lint
 This project uses [bashate](https://github.com/openstack/bashate) _and_ [shellcheck](https://github.com/koalaman/shellcheck) for linting.
 ```bash
+shellcheck -x -f gcc ee.sh ee.test.bats
 bashate -i E006 ee.sh
-shellcheck -x -f gcc ee.sh
+bashate -i E006,E040 ee.test.bats
 ```
+There is a `bpkg` command if you prefer.
+```bash
+bpkg run lint
+```
+This alias is equivalent to the commands above.
 
 ## Test
 This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS).
