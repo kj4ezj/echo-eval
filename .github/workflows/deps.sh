@@ -12,6 +12,7 @@ ee sudo apt-get update -qq
 ee sudo apt-get install -yqq \
     bats \
     curl \
+    dc \
     git \
     make \
     python3-bashate \
