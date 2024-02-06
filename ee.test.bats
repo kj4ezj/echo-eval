@@ -100,6 +100,13 @@ export BASE_CASE_RESULT='3'
 }
 
 # base case > result
+@test 'ee.sh > base case > result > does not write to STDERR' {
+    ./ee.sh "$BASE_CASE" >/dev/null 2>test.out || :
+    TEST_STDERR="$(cat test.out)"
+    rm test.out
+    [[ "$(printf "$TEST_STDERR" | wc -c)" == '0' ]]
+}
+
 @test 'ee.sh > base case > result > is printed' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE" || :)"
     echo "$TEST_STDOUT" | grep "$BASE_CASE_RESULT" >/dev/null

@@ -43,3 +43,6 @@ logs
 
 # macOS finder
 **/*.DS_Store
+
+# test artifacts
+test.out
