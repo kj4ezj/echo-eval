@@ -1,0 +1,25 @@
+name: echo-eval CI
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    name: echo-eval
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: .github/workflows/deps.sh
+
+      - name: Init
+        run: bpkg install --dev
+
+      - name: Lint
+        run: bpkg run lint
+
+      - name: Unit Test
+        run: bpkg run test
