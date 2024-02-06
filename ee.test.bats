@@ -90,6 +90,11 @@ export BASE_CASE_RESULT='3'
     echo "$TEST_STDOUT" | grep "$BASE_CASE_RESULT" >/dev/null
 }
 
+@test 'ee.sh > base case > result > is printed alone on line' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
+    echo "$TEST_STDOUT" | grep -P "^$BASE_CASE_RESULT\$" >/dev/null
+}
+
 @test 'ee.sh > base case > result > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP "$BASE_CASE_RESULT" | wc -l)"
