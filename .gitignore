@@ -9,6 +9,9 @@
 # binary files
 *.bin
 
+# bpkg
+**/deps
+
 # build artifacts
 **/build
 
@@ -40,6 +43,3 @@ logs
 
 # macOS finder
 **/*.DS_Store
-
-# bpkg
-**/deps
