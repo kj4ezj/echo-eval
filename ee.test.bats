@@ -20,6 +20,10 @@ export BASE_CASE_RESULT='3'
     [[ -x 'ee.sh' ]] && true || false
 }
 
+@test 'ee.sh > returns EXIT_SUCCESS by default' {
+    ./ee.sh >/dev/null
+}
+
 # base case > command
 @test 'ee.sh > base case > command > is printed' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
