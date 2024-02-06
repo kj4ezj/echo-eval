@@ -11,6 +11,7 @@
     "ee.sh"
   ],
   "commands": {
+    "lint": "shellcheck -x -f gcc ee.sh ee.test.bats && bashate -i E006 ee.sh && bashate -i E006,E040 ee.test.bats",
     "test": "./ee.test.bats"
   }
 }
