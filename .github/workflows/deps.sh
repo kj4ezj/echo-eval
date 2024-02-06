@@ -9,14 +9,15 @@ function ee {
 
 # apt
 ee sudo apt-get update -qq
-ee sudo apt-get install -yqq \
+ee 'sudo apt-get install -yqq \
     bats \
     curl \
     dc \
     git \
     make \
     python3-bashate \
-    shellcheck
+    shellcheck \
+        >/dev/null'
 # bpkg
 ee curl -fsSL 'https://raw.githubusercontent.com/bpkg/bpkg/master/setup.sh' -o bpkg-setup.sh
 ee chmod +x bpkg-setup.sh
