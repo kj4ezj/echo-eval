@@ -4,9 +4,8 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
+    name: Lint and Test echo-eval
     runs-on: ubuntu-latest
-
-    name: echo-eval
 
     steps:
       - name: Checkout Repo
