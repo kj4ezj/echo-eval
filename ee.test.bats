@@ -22,6 +22,7 @@
     ./ee.sh >/dev/null
 }
 
+# shellcheck disable=SC2016
 @test 'ee.sh > runs the given command, performing evaluation internally' {
     TEST_STDOUT="$(./ee.sh 'echo "${BASH_SOURCE[0]}"' || :)"
     echo "$TEST_STDOUT" | grep './ee.sh' >/dev/null
