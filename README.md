@@ -109,16 +109,15 @@ source ~/github/kj4ezj/echo-eval/ee.sh
 Just remove that line to "uninstall."
 
 ## Usage
-This library performs the `echo`/`eval` pattern against any string(s) passed to `ee`. For example, the output of...
+This library takes the input you give it, prints or echoes it to the terminal with a fake shell prompt in front of it, then tries to run it as a command. For example, the output of this...
 ```bash
-ee jq --version
+ee uname
 ```
-...might look like:
+...looks like this on Linux.
 ```
-$ jq --version
-jq-1.6
+$ uname
+Linux
 ```
-
 You can invoke `ee` as a function...
 ```bash
 echo-eval$ ee echo test
@@ -131,17 +130,35 @@ echo-eval$ ./ee.sh echo test
 $ echo test
 test
 ```
-
-Some more complicated commands may need to be encased in quotes, such as this command where we are using pipes but wish to echo the entire command.
+Some commands may need to be encased in quotes to work the way you intend. For example, `dc` is sensitive to whitespace.
 ```bash
-echo-eval$ export EXAMPLE='yeet'
+echo-eval$ ./ee.sh dc -e '1 2 + p'
+$ dc -e 1 2 + p
+dc: Could not open file 2
+dc: Could not open file +
+dc: Could not open file p
+echo-eval$ ./ee.sh "dc -e '1 2 + p'"
+$ dc -e '1 2 + p'
+3
+```
+In this example, we want the input to `ee` to include the pipe (`|`).
+```bash
+echo-eval$ EXAMPLE='yeet'
 echo-eval$ ee printf "$EXAMPLE" | wc -c
 18
-echo-eval$ ee 'printf "$EXAMPLE" | wc -c'
+```
+BASH evaluated `"$EXAMPLE"`, invoked `ee` with the input `printf yeet`, `ee` returned this...
+```
+$ printf yeet
+yeet
+```
+...then BASH piped both those lines to `wc -c`, giving eighteen characters. Instead, we want to put quotes around the entire command.
+```bash
+echo-eval$ ./ee.sh 'printf "$EXAMPLE" | wc -c'
 $ printf "$EXAMPLE" | wc -c
 4
 ```
-Here, you can see one intending to print the length of the value of the `EXAMPLE` environment variable only got the expected output when the whole command was surrounded in single quotes. Be vigilant of quoting, especially if variables being consumed by commands contain secrets and you want `ee` to print the _name_ of the variable in the `echo` step, not the _value_ contained by the variable. It is recommended you always try out commands locally in your shell before publishing them.
+Here, "$EXAMPLE" is evaluated at runtime inside the library and we get the correct output of four characters.
 
 ## Development
 Contribute to this project.
