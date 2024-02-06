@@ -7,6 +7,10 @@ export BASE_CASE_ARG2="'1 2 + p'"
 export BASE_CASE_RESULT='3'
 
 # meta
+@test 'test environment > dc is installed' {
+    dc --version >/dev/null
+}
+
 @test 'test environment > GNU grep is installed' {
     grep --version | grep 'GNU' >/dev/null
 }
