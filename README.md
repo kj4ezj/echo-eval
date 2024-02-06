@@ -154,10 +154,10 @@ $ printf "$EXAMPLE" | wc -c
 ```
 Here, you can see one intending to print the length of the value of the `EXAMPLE` environment variable only got the expected output when the whole command was surrounded in single quotes. Be vigilant of quoting, especially if variables being consumed by commands contain secrets and you want `ee` to print the _name_ of the variable in the `echo` step, not the _value_ contained by the variable. It is recommended you always try out commands locally in your shell before publishing them.
 
-# Development
+## Development
 Contribute to this project.
 
-## Dependencies
+### Dependencies
 The script itself has no dependencies by design, but you will need these tools to work on this script and test your changes:
 - [bashate](https://github.com/openstack/bashate)
 - [bats](https://github.com/bats-core/bats-core)
@@ -166,7 +166,7 @@ The script itself has no dependencies by design, but you will need these tools t
 - make
 - [shellcheck](https://github.com/koalaman/shellcheck)
 
-## Lint
+### Lint
 This project uses [bashate](https://github.com/openstack/bashate) _and_ [shellcheck](https://github.com/koalaman/shellcheck) for linting.
 ```bash
 shellcheck -x -f gcc ee.sh ee.test.bats
@@ -179,7 +179,7 @@ bpkg run lint
 ```
 This alias is equivalent to the commands above.
 
-## Test
+### Test
 This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS). Various issues currently prevent `bpkg` from installing BATS as a dependency in this repo, so you need to install it on your system for now.
 ```bash
 ./ee.test.bats
