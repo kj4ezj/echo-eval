@@ -1,11 +1,5 @@
 #!/usr/bin/env bats
 
-export BASE_CASE="dc -e '1 2 + p'"
-export BASE_CASE_CMD='dc'
-export BASE_CASE_ARG1='-e'
-export BASE_CASE_ARG2="'1 2 + p'"
-export BASE_CASE_RESULT='3'
-
 # smoke tests
 @test 'smoke test > dc is installed' {
     dc --version >/dev/null
@@ -32,6 +26,13 @@ export BASE_CASE_RESULT='3'
     TEST_STDOUT="$(./ee.sh 'echo "${BASH_SOURCE[0]}"')"
     echo "$TEST_STDOUT" | grep './ee.sh' >/dev/null
 }
+
+##### BASE CASE #####
+export BASE_CASE="dc -e '1 2 + p'"
+export BASE_CASE_CMD='dc'
+export BASE_CASE_ARG1='-e'
+export BASE_CASE_ARG2="'1 2 + p'"
+export BASE_CASE_RESULT='3'
 
 # base case > command
 @test 'ee.sh > base case > command > is printed' {
@@ -128,39 +129,39 @@ export BASE_CASE_RESULT='3'
     ./ee.sh "$BASE_CASE" >/dev/null
 }
 
-# shell prompt test cases
-@test 'ee.sh > shell prompt > exists' {
+# base case > shell prompt
+@test 'ee.sh > base case > shell prompt > exists' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P '[$#]' >/dev/null
 }
 
-@test 'ee.sh > shell prompt > has no prefix' {
+@test 'ee.sh > base case > shell prompt > has no prefix' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P '^[$#]' >/dev/null
 }
 
-@test 'ee.sh > shell prompt > is followed by exactly one space' {
+@test 'ee.sh > base case > shell prompt > is followed by exactly one space' {
     TEST_STDOUT="$(./ee.sh)"
     echo "$TEST_STDOUT" | grep -P '[$#]+ $' >/dev/null
 }
 
-@test 'ee.sh > shell prompt > is on first line' {
+@test 'ee.sh > base case > shell prompt > is on first line' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | head -n 1 | grep -P '[$#]' >/dev/null
 }
 
-@test 'ee.sh > shell prompt > is one character' {
+@test 'ee.sh > base case > shell prompt > is one character' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P '^[^$#]*[$#][^$#]*$' >/dev/null
 }
 
-@test 'ee.sh > shell prompt > is printed exactly once' {
+@test 'ee.sh > base case > shell prompt > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP '[$#]+' | wc -l)"
     [[ "$COUNT" == '1' ]] && true || false
 }
 
-@test 'ee.sh > shell prompt > uses dollar sign' {
+@test 'ee.sh > base case > shell prompt > uses dollar sign' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
     echo "$TEST_STDOUT" | grep -P '^[^$#]*[$]+[^$#]*$' >/dev/null
 }
