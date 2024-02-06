@@ -180,4 +180,12 @@ bpkg run lint
 This alias is equivalent to the commands above.
 
 ## Test
-This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS).
+This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS). Various issues currently prevent `bpkg` from installing BATS as a dependency in this repo, so you need to install it on your system for now.
+```bash
+./ee.test.bats
+```
+There is also a `bpkg` alias.
+```bash
+bpkg run test
+```
+This is equivalent to the above.
