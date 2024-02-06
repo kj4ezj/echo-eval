@@ -9,5 +9,8 @@
   "uninstall" : "make uninstall",
   "scripts": [
     "ee.sh"
-  ]
+  ],
+  "commands": {
+    "test": "./ee.test.bats"
+  }
 }
