@@ -115,6 +115,10 @@ export BASE_CASE_RESULT='3'
     echo "$TEST_STDOUT" | head -n 2 | tail -n 1 | grep "$BASE_CASE_RESULT" >/dev/null
 }
 
+@test 'ee.sh > base case > result > returns EXIT_SUCCESS' {
+    ./ee.sh "$BASE_CASE" >/dev/null
+}
+
 # shell prompt test cases
 @test 'ee.sh > shell prompt > exists' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
