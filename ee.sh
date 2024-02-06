@@ -12,5 +12,4 @@ else
     exit "$?"
 fi
 
-# https://github.com/kj4ezj/ee
-# Copyright © 2022 Zach Butler
+# Copyright © 2022 Zach Butler - https://github.com/kj4ezj/ee
