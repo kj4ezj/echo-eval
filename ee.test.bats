@@ -137,6 +137,11 @@ export BASE_CASE_RESULT='3'
     ./ee.sh "$BASE_CASE" >/dev/null
 }
 
+@test 'ee.sh > base case > result > writes to STDOUT' {
+    TEST_STDOUT="$(./ee.sh "$BASE_CASE" || :)"
+    [[ "$(printf "$TEST_STDOUT" | wc -c)" != '0' ]]
+}
+
 # base case > shell prompt
 @test 'ee.sh > base case > shell prompt > exists' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE" || :)"
