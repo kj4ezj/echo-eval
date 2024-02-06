@@ -8,8 +8,8 @@ function ee {
 }
 
 # apt
-ee apt-get update -qq
-ee apt-get install -yqq \
+ee sudo apt-get update -qq
+ee sudo apt-get install -yqq \
     bats \
     curl \
     git \
@@ -19,7 +19,7 @@ ee apt-get install -yqq \
 # bpkg
 ee curl -fsSL 'https://raw.githubusercontent.com/bpkg/bpkg/master/setup.sh' -o bpkg-setup.sh
 ee chmod +x bpkg-setup.sh
-ee ./bpkg-setup.sh
+ee sudo ./bpkg-setup.sh
 
 # versions
 source /etc/os-release
