@@ -104,7 +104,7 @@ export BASE_CASE_RESULT='3'
     ./ee.sh "$BASE_CASE" >/dev/null 2>test.out || :
     TEST_STDERR="$(cat test.out)"
     rm test.out
-    [[ "$(printf "$TEST_STDERR" | wc -c)" == '0' ]]
+    [[ "$(printf '%s' "$TEST_STDERR" | wc -c)" == '0' ]]
 }
 
 @test 'ee.sh > base case > result > is printed' {
@@ -139,7 +139,7 @@ export BASE_CASE_RESULT='3'
 
 @test 'ee.sh > base case > result > writes to STDOUT' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE" || :)"
-    [[ "$(printf "$TEST_STDOUT" | wc -c)" != '0' ]]
+    [[ "$(printf '%s' "$TEST_STDOUT" | wc -c)" != '0' ]]
 }
 
 # base case > shell prompt
@@ -294,7 +294,7 @@ export FAILURE_CASE_EXIT_STATUS='2'
 
 @test 'ee.sh > failure case > result > writes to STDOUT' {
     TEST_STDOUT="$(./ee.sh "$FAILURE_CASE" 2>/dev/null || :)"
-    [[ "$(printf "$TEST_STDOUT" | wc -c)" != '0' ]]
+    [[ "$(printf '%s' "$TEST_STDOUT" | wc -c)" != '0' ]]
 }
 
 # failure case > shell prompt
