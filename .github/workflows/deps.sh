@@ -17,9 +17,9 @@ ee apt-get install -yqq \
     python3-bashate \
     shellcheck
 # bpkg
-ee curl -fsSL 'https://raw.githubusercontent.com/bpkg/bpkg/master/setup.sh' -o ~/Downloads/bpkg-setup.sh
-ee chmod +x ~/Downloads/bpkg-setup.sh
-ee ~/Downloads/bpkg-setup.sh
+ee curl -fsSL 'https://raw.githubusercontent.com/bpkg/bpkg/master/setup.sh' -o bpkg-setup.sh
+ee chmod +x bpkg-setup.sh
+ee ./bpkg-setup.sh
 
 # versions
 source /etc/os-release
