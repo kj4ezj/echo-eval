@@ -33,5 +33,5 @@ jobs:
       - name: Lint
         run: bpkg run lint
 
-      - name: Unit Test
+      - name: Test
         run: bpkg run test

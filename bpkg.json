@@ -13,6 +13,6 @@
   "commands": {
     "act": "act --artifact-server-path .github/artifacts",
     "lint": "./lint.sh",
-    "test": "echo '$ ./ee.test.bats' && ./ee.test.bats && echo 'Done.'"
+    "test": "./test.sh"
   }
 }

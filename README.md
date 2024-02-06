@@ -196,15 +196,21 @@ bpkg run lint
 They both do the same thing.
 
 ### Test
-This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS). Various issues currently prevent `bpkg` from installing BATS as a dependency in this repo, so you need to install it on your system for now. The test file can be invoked directly.
+This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS). Various issues currently prevent `bpkg` from installing BATS as a dependency, so you need to install it on your system for now.
+
+This project has two [types of tests](https://testing.googleblog.com/2010/12/test-sizes.html):
+- `ee.test.bats` - small and medium tests
+- `large-test.bats` - large tests
+
+The small tests can be invoked directly...
 ```bash
 ./ee.test.bats
 ```
-There is also a `bpkg` alias.
+...or you can run them with `bpkg`.
 ```bash
 bpkg run test
 ```
-This is equivalent to the above.
+The `bpkg` alias calls `test.sh`, which runs the small tests every time and will run the large tests if it detects a cloud-based CI environment. The large tests try to install the current commit from GitHub using `bpkg`, so you won't ever run them locally.
 
 ## CI
 This repo contains the following GitHub Actions workflow(s) for CI:
