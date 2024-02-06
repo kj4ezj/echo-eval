@@ -17,36 +17,24 @@ This library simply prints a bash command with a shell prompt in front of it and
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
 ```bash
-echo "$ ls -la ~"
-eval "ls -la ~"
+echo "$ ls -la"
+eval "ls -la"
 ```
 The commands are displayed in the terminal in a way that looks like shell history, as if a human had sat at the terminal, typed the command, and run it.
 ```
 $ ls -la
-total 56
-drwxr-xr-x   1 root root 4096 Feb 27 20:01 .
-drwxr-xr-x   1 root root 4096 Feb 27 20:01 ..
-lrwxrwxrwx   1 root root    7 Jan 13 16:47 bin -> usr/bin
-drwxr-xr-x   2 root root 4096 Apr 15  2020 boot
-drwxr-xr-x   5 root root  360 Feb 27 20:01 dev
-drwxr-xr-x   1 root root 4096 Feb 27 20:01 etc
-drwxr-xr-x   2 root root 4096 Apr 15  2020 home
-lrwxrwxrwx   1 root root    7 Jan 13 16:47 lib -> usr/lib
-lrwxrwxrwx   1 root root    9 Jan 13 16:47 lib32 -> usr/lib32
-lrwxrwxrwx   1 root root    9 Jan 13 16:47 lib64 -> usr/lib64
-lrwxrwxrwx   1 root root   10 Jan 13 16:47 libx32 -> usr/libx32
-drwxr-xr-x   2 root root 4096 Jan 13 16:47 media
-drwxr-xr-x   2 root root 4096 Jan 13 16:47 mnt
-drwxr-xr-x   2 root root 4096 Jan 13 16:47 opt
-dr-xr-xr-x 481 root root    0 Feb 27 20:01 proc
-drwx------   2 root root 4096 Jan 13 16:50 root
-drwxr-xr-x   5 root root 4096 Jan 13 16:50 run
-lrwxrwxrwx   1 root root    8 Jan 13 16:47 sbin -> usr/sbin
-drwxr-xr-x   2 root root 4096 Jan 13 16:47 srv
-dr-xr-xr-x  13 root root    0 Feb 27 20:01 sys
-drwxrwxrwt   2 root root 4096 Jan 13 16:50 tmp
-drwxr-xr-x  13 root root 4096 Jan 13 16:47 usr
-drwxr-xr-x  11 root root 4096 Jan 13 16:50 var
+total 60
+drwxrwxr-x 4 zach zach  4096 Feb  6 10:42 .
+drwxrwxr-x 6 zach zach  4096 Feb  1 18:55 ..
+-rw-rw-r-- 1 zach zach   563 Feb  6 01:31 bpkg.json
+-rwxrwxr-x 1 zach zach   303 Feb  6 10:59 ee.sh
+-rwxrwxr-x 1 zach zach 11824 Feb  6 10:44 ee.test.bats
+drwxrwxr-x 8 zach zach  4096 Feb  6 10:59 .git
+drwxrwxr-x 3 zach zach  4096 Feb  6 01:31 .github
+-rw-rw-r-- 1 zach zach   358 Feb  5 21:05 .gitignore
+-rw-rw-r-- 1 zach zach  1068 Feb  1 18:55 LICENSE
+-rw-rw-r-- 1 zach zach   455 Feb  6 01:34 Makefile
+-rw-rw-r-- 1 zach zach  8647 Feb  6 11:23 README.md
 ```
 I find this is much more approachable to newer developers than something like `set -x`, which displays a bunch of nonsense in addition to the commands being run on most systems.
 
