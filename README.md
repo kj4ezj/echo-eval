@@ -90,7 +90,7 @@ This is the recommended installation method. Install [bpkg](https://github.com/b
 > ```
 
 ### make
-Clone this repo locally using your preferred method. Navigate to the root of the repo in your termial and install.
+Clone this repo locally using your preferred method. Navigate to the root of the repo in your terminal and install.
 ```bash
 sudo make install
 ```
