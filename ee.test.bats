@@ -276,7 +276,7 @@ export FAILURE_CASE_EXIT_STATUS='2'
 }
 
 @test 'ee.sh > failure case > result > returns exit status from command' {
-    ./ee.sh "$FAILURE_CASE" 2>&1 >/dev/null || [[ "$?" == 2 ]]
+    ./ee.sh "$FAILURE_CASE" 2>&1 >/dev/null && false || [[ "$?" == 2 ]]
 }
 
 # failure case > shell prompt
