@@ -28,6 +28,11 @@ export BASE_CASE_RESULT='3'
     ./ee.sh >/dev/null
 }
 
+@test 'ee.sh > runs the given command, performing evaluation internally' {
+    TEST_STDOUT="$(./ee.sh 'echo "${BASH_SOURCE[0]}"')"
+    echo "$TEST_STDOUT" | grep './ee.sh' >/dev/null
+}
+
 # base case > command
 @test 'ee.sh > base case > command > is printed' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE")"
