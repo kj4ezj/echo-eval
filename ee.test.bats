@@ -11,11 +11,11 @@
 
 # generic tests
 @test 'ee.sh > exists' {
-    [[ -f 'ee.sh' ]] && true || false
+    [[ -f 'ee.sh' ]]
 }
 
 @test 'ee.sh > is executable' {
-    [[ -x 'ee.sh' ]] && true || false
+    [[ -x 'ee.sh' ]]
 }
 
 @test 'ee.sh > returns EXIT_SUCCESS by default' {
@@ -43,7 +43,7 @@ export BASE_CASE_RESULT='3'
 @test 'ee.sh > base case > command > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE" || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP "$BASE_CASE_CMD" | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > base case > command > is printed on first line' {
@@ -70,7 +70,7 @@ export BASE_CASE_RESULT='3'
 @test 'ee.sh > base case > parameters > arg1 is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE" || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP -- "$BASE_CASE_ARG1" | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > base case > parameters > arg1 is printed on first line' {
@@ -112,7 +112,7 @@ export BASE_CASE_RESULT='3'
 @test 'ee.sh > base case > result > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE" || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP "$BASE_CASE_RESULT" | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > base case > result > is printed on last line' {
@@ -158,7 +158,7 @@ export BASE_CASE_RESULT='3'
 @test 'ee.sh > base case > shell prompt > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$BASE_CASE" || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP '[$#]+' | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > base case > shell prompt > uses dollar sign' {
@@ -183,7 +183,7 @@ export FAILURE_CASE_EXIT_STATUS='2'
 @test 'ee.sh > failure case > command > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$FAILURE_CASE" 2>/dev/null || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP "$FAILURE_CASE_CMD" | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > failure case > command > is printed on first line' {
@@ -210,7 +210,7 @@ export FAILURE_CASE_EXIT_STATUS='2'
 @test 'ee.sh > failure case > parameters > arg1 is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$FAILURE_CASE" 2>/dev/null || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP -- "$FAILURE_CASE_ARG1" | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > failure case > parameters > arg1 is printed on first line' {
@@ -231,7 +231,7 @@ export FAILURE_CASE_EXIT_STATUS='2'
 @test 'ee.sh > failure case > parameters > arg2 is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$FAILURE_CASE" 2>/dev/null || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP -- "$FAILURE_CASE_ARG2" | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > failure case > parameters > arg2 is printed on first line' {
@@ -258,7 +258,7 @@ export FAILURE_CASE_EXIT_STATUS='2'
 @test 'ee.sh > failure case > result > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$FAILURE_CASE" 2>&1 || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP "$FAILURE_CASE_RESULT" | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > failure case > result > is printed on last line' {
@@ -308,7 +308,7 @@ export FAILURE_CASE_EXIT_STATUS='2'
 @test 'ee.sh > failure case > shell prompt > is printed exactly once' {
     TEST_STDOUT="$(./ee.sh "$FAILURE_CASE" 2>/dev/null || :)"
     COUNT="$(echo "$TEST_STDOUT" | grep -oP '[$#]+' | wc -l)"
-    [[ "$COUNT" == '1' ]] && true || false
+    [[ "$COUNT" == '1' ]]
 }
 
 @test 'ee.sh > failure case > shell prompt > uses dollar sign' {
