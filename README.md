@@ -160,11 +160,13 @@ Contribute to this project.
 
 ### Dependencies
 The script itself has no dependencies by design, but you will need these tools to work on this script and test your changes:
+- [act](https://github.com/nektos/act)
+    - Requires docker.
 - [bashate](https://github.com/openstack/bashate)
 - [bats](https://github.com/bats-core/bats-core)
 - [bpkg](https://github.com/bpkg/bpkg)
-- git
-- make
+    - git
+    - make
 - [shellcheck](https://github.com/koalaman/shellcheck)
 
 ### Lint
@@ -181,7 +183,7 @@ bpkg run lint
 This alias is equivalent to the commands above.
 
 ### Test
-This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS). Various issues currently prevent `bpkg` from installing BATS as a dependency in this repo, so you need to install it on your system for now.
+This project uses the [BASH Automated Testing System](https://github.com/bats-core/bats-core) (BATS). Various issues currently prevent `bpkg` from installing BATS as a dependency in this repo, so you need to install it on your system for now. The test file can be invoked directly.
 ```bash
 ./ee.test.bats
 ```
@@ -197,7 +199,16 @@ This repo contains the following GitHub Actions workflow(s) for CI:
     - [Pipeline](https://github.com/kj4ezj/echo-eval/actions/workflows/ci.yml)
     - [Documentation](./.github/workflows/README.md)
 
-See the pipeline documentation for more information.
+You can run the GitHub Actions workflow(s) locally using [act](https://github.com/nektos/act).
+```bash
+act --artifact-server-path .github/artifacts
+```
+This, too, has a `bpkg` alias so nobody has to memorize it.
+```bash
+bpkg run act
+```
+Please make sure pipeline changes do not break `act` compatibility.
+
 
 ***
 **_Legal notice_**  

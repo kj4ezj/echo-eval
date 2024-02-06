@@ -11,6 +11,7 @@
     "ee.sh"
   ],
   "commands": {
+    "act": "act --artifact-server-path .github/artifacts",
     "lint": ".github/workflows/lint.sh",
     "test": "echo '$ ./ee.test.bats' && ./ee.test.bats && echo 'Done.'"
   }
