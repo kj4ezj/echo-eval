@@ -6,7 +6,7 @@ install:
 	@echo 'Installing echo-eval.'
 	cat './ee.sh' | sed 's_kj4ezj/ee_kj4ezj/ee/tree/$(VERSION)_' > '$(PREFIX)/bin/$(BIN)'
 	chmod +x '$(PREFIX)/bin/$(BIN)'
-	@echo 'Done installing echo-eval.'
+	@echo 'Done installing echo-eval as "$(PREFIX)/bin/$(BIN)".'
 
 uninstall:
 	@echo 'Uninstalling echo-eval.'
