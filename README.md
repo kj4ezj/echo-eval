@@ -182,6 +182,7 @@ The script itself has no dependencies by design, but you will need these tools t
     - git
     - make
 - [dc](https://www.gnu.org/software/bc/manual/dc-1.05/html_mono/dc.html)
+- [git](https://git-scm.com)
 - [shellcheck](https://github.com/koalaman/shellcheck)
 
 ### Lint
