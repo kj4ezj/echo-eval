@@ -28,6 +28,7 @@ source /etc/os-release
 echo "$NAME $VERSION"
 ee uname -r
 ee bash --version
+ee "apt-cache show python3-bashate | grep Version | cut -d ' ' -f 2" || :
 ee bats --version
 ee bpkg --version
 ee curl --version
