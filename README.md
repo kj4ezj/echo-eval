@@ -10,7 +10,6 @@ This library simply prints a bash command with a shell prompt in front of it and
 1. [Usage](#usage)
     1. [Security](#security)
 1. [Development](#development)
-    1. [Dependencies](#dependencies)
     1. [Lint](#lint)
     1. [Test](#test)
 1. [CI](#ci)
@@ -170,10 +169,7 @@ When you evoke echo-eval (`ee`) from a script or program, it:
 This means you need to be wary of command injection, variable manipulation, and privilege escalation. _Never_, **_ever_** pass unsanitized user input to echo-eval, even if it is inside a print statement or in single quotes! All attack vectors associated with the `eval` command apply, known and unknown. You have been warned.
 
 ## Development
-Here is what you need to know to contribute to this project.
-
-### Dependencies
-The script itself has no dependencies by design, but you will need these tools to work on this script and test your changes:
+Contributors need these tools installed.
 - [act](https://github.com/nektos/act)
     - Requires docker.
 - [bashate](https://github.com/openstack/bashate)
