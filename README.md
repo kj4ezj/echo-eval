@@ -12,7 +12,7 @@ This library simply prints a bash command with a shell prompt in front of it and
 1. [Development](#development)
     1. [Lint](#lint)
     1. [Test](#test)
-1. [CI](#ci)
+    1. [CI](#ci)
 
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
@@ -209,7 +209,7 @@ bpkg run test
 ```
 The `bpkg` alias calls `test.sh`, which runs the small tests every time and will run the large tests if it detects a cloud-based CI environment. The large tests try to install the current commit from GitHub using `bpkg`, so you won't ever run them locally.
 
-## CI
+### CI
 This repo contains the following GitHub Actions workflow(s) for CI:
 - echo-eval CI - initialize, lint, and test the `echo-eval` project.
     - [Pipeline](https://github.com/kj4ezj/echo-eval/actions/workflows/ci.yml)
