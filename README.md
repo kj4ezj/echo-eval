@@ -53,7 +53,7 @@ ee 'docker run -it ubuntu:20:04'
 Finally, the function has been packaged as a module that can be installed on a system or imported by BASH scripts using a package manager.
 
 ## Installation
-You can install this script using a package manager (recommended), install manually and source it from somewhere, or invoke it directly without installing.
+You can install this script using a package manager (recommended), install manually and source it from somewhere, or invoke it directly without installing. This tool has no dependencies by design.
 
 ### bpkg
 This is the recommended installation method. Install [bpkg](https://github.com/bpkg/bpkg) if you have not already. Then, you have three installation options.
