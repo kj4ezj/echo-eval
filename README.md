@@ -13,6 +13,7 @@ This library simply prints a bash command with a shell prompt in front of it and
     1. [Lint](#lint)
     1. [Test](#test)
     1. [CI](#ci)
+1. [See Also](#see-also)
 
 ## Background
 The name comes from a syntax I have used in BASH scripts to print significant or complex commands before running them to provide insight into what a script is doing for more technical users and customers, or for debugging.
@@ -227,6 +228,10 @@ bpkg run act
 ```
 Please make sure pipeline changes do not break `act` compatibility.
 
+## See Also
+- [bpkg](https://bpkg.sh)
+    - [echo-eval](https://bpkg.sh/pkg/echo-eval) on `bpkg`
+    - [GitHub](https://github.com/bpkg) > [listing](https://github.com/bpkg/bpkg.github.io/blob/master/_posts/2024-02-06-echo-eval.md)
 
 ***
 > **_Legal Notice_**  
